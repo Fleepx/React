@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import CardPizza from "./Card";
-import { detallesPizza } from "../detail";
+import { detallesPizza } from "../pizzas";
 
 function Home() {
   return (
@@ -14,6 +14,7 @@ function Home() {
             name={d.name}
             price={d.price}
             ingredients= {d.ingredients}
+            desc= {d.desc}
             img={d.img}
           />
         ))}

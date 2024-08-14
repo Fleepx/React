@@ -14,12 +14,14 @@ const Card = (props) => {
           <p>Ingredientes</p>
 
           <p class="ingredientes">{props.ingredients.join(", ")}</p>
-          <h4 className="precio">Precio ${formatearNumero(props.price)}</h4>
+
           <div className="container">
+          <p class="descripcion">{props.desc}</p>
 
           <div className="botones">
             <button className="more">Ver Más</button>
             <button className="add">Añadir <i class="fa-solid fa-cart-shopping"></i></button>
+          <h5 className="precio">Precio ${formatearNumero(props.price)}</h5>
           </div>
           </div>
         </figcaption>

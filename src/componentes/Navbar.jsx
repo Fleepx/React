@@ -22,7 +22,7 @@ const Navbar = () => {
                 <a className="nav-link" href="#">Profile</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="#" role="button">
+                <a className="nav-link" href="./componentes/Register" role="button">
                     Login
                 </a>
                 </li>
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <a className="nav-link" href="#">Logout</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="#">Register</a>
+                <a className="nav-link" href="./componentes/Register">Sing Up</a>
                 </li>
             </ul>
             <form className="d-flex" role="search">
