@@ -13,9 +13,7 @@ function App() {
       <div className="App">
         <Navbar />
         {/*
-          <Home /> 
           <Register/>
-          */} 
           <Login/>
         <Footer />
       </div>
