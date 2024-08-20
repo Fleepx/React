@@ -3,7 +3,7 @@ import Header from "./Header";
 import CardPizza from "./Card";
 import { detallesPizza } from "../pizzas";
 
-function Home() {
+function Home({ agregarAlCarro }) {
   return (
     <div>
       <Header />
@@ -13,10 +13,10 @@ function Home() {
             key={index}
             name={d.name}
             price={d.price}
-            ingredients= {d.ingredients}
-            desc= {d.desc}
+            ingredients={d.ingredients}
+            desc={d.desc}
             img={d.img}
-            onAddToCart={() => agregarAlCarro(pizza)}
+            onAddToCart={() => agregarAlCarro(d)}
           />
         ))}
       </main>

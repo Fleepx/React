@@ -21,8 +21,10 @@ const Card = (props) => {
         <figcaption className="cuerpo">
           {mostrarDescripcion ? (
             <>
+            <h5 className="titulo">{props.name}</h5>
+            <hr />
               <p className="descripcion">{props.desc}</p>
-              <button className="more" onClick={usarVerMasClick}>
+              <button className="more btn" onClick={usarVerMasClick}>
                 Ver Menos
               </button>
             </>
@@ -38,12 +40,16 @@ const Card = (props) => {
               </ul>
               <div className="container">
                 <div className="botones">
-                  <button className="more" onClick={usarVerMasClick}>
+                  <button className="more btn" onClick={usarVerMasClick}>
                     Ver Más
                   </button>
-                  <button className="add" onClick={props.onAddToCart}>
-                    Añadir <i className="fa-solid fa-cart-shopping"></i>
-                  </button>
+
+<a className="btn add" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" onClick={props.onAddToCart}>
+Añadir <i className="fa-solid fa-cart-shopping"></i>
+</a>
+
+
+
                   <h5 className="precio">Precio ${formatearNumero(props.price)}</h5>
                 </div>
               </div>

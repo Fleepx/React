@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Cart from './Cart';
-import { detallesPizza } from "../pizzas";
-import Card from './Card';
+import Home from './Home';
 
 const CartContainer = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -39,18 +38,9 @@ const CartContainer = () => {
   return (
     <div>
       <Cart cartItems={cartItems} onAdd={agregarAlCarro} onRemove={handleRemoveFromCart} />
-      <div className="cards-container">
-        {detallesPizza.map(pizza => (
-          <Card
-            key={pizza.id}
-            {...pizza}
-            onAddToCart={() => agregarAlCarro(pizza)}
-          />
-        ))}
-      </div>
+      <Home agregarAlCarro={agregarAlCarro} />
     </div>
   );
 };
 
 export default CartContainer;
-
