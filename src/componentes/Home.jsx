@@ -16,6 +16,7 @@ function Home() {
             ingredients= {d.ingredients}
             desc= {d.desc}
             img={d.img}
+            onAddToCart={() => agregarAlCarro(pizza)}
           />
         ))}
       </main>
