@@ -1,22 +1,32 @@
-import React from "react";
-import Header from "./Header";
+import React, { useEffect, useState } from "react";
 import CardPizza from "./Card";
-import { detallesPizza } from "../pizzas";
+
 
 function Home({ agregarAlCarro }) {
+  const [pizzas, setPizzas] = useState([])
+
+  useEffect (() => {
+      fetch("http://localhost:5000/api/pizzas")
+        .then(res => res.json())
+        .then(res => setPizzas(res))
+  },[])
+
+  const capPrimeraLetra = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <div>
-      <Header />
       <main className="d-flex justify-content-center gap-3 mt-3 mb-3">
-        {detallesPizza.map((d, index) => (
+        {pizzas.map((pizza, index) => (
           <CardPizza
             key={index}
-            name={d.name}
-            price={d.price}
-            ingredients={d.ingredients}
-            desc={d.desc}
-            img={d.img}
-            onAddToCart={() => agregarAlCarro(d)}
+            name={capPrimeraLetra(pizza.name)}
+            price={pizza.price}
+            ingredients={pizza.ingredients}
+            desc={pizza.desc}
+            img={pizza.img}
+            onAddToCart={() => agregarAlCarro(pizza)}
           />
         ))}
       </main>

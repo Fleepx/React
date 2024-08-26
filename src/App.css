@@ -31,8 +31,8 @@ main {
   margin: 3rem;
 }
 .card {
-  width: 25rem;
-  height: 36rem;
+  width: 27rem;
+  height: 38rem;
 }
 .cuerpo {
   padding: 1rem;
@@ -62,8 +62,22 @@ main {
 .agregar, .restar {
   padding-left: 5px;
   padding-right: 5px;
+  color: aliceblue;
+  background-color: brown;
+  font-size: 10px;
 }
 .cart-item-controls {
   display: flex;
+  align-items: center;
   gap: 5px;
+}
+.descPizza {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.pricePizza {
+  margin-right: 5rem;
+  font-size: 25px;
 }

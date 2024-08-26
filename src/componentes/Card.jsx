@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { formatearNumero } from '../helpers/format';
+import React, { useState } from "react";
+import { formatearNumero } from "./functions/format";
 
-const Card = (props) => {
+const Card = (pizzas) => {
   const [mostrarDescripcion, setMostrarDescripcion] = useState(false);
 
   const usarVerMasClick = () => {
@@ -16,25 +16,25 @@ const Card = (props) => {
     <div>
       <figure className="card">
         <div className="img">
-          <img src={props.img} className="card-img-top" alt={props.name} />
+          <img src={pizzas.img} className="card-img-top" alt={pizzas.name} />
         </div>
         <figcaption className="cuerpo">
           {mostrarDescripcion ? (
             <>
-            <h5 className="titulo">{props.name}</h5>
-            <hr />
-              <p className="descripcion">{props.desc}</p>
+              <h5 className="titulo">{pizzas.name}</h5>
+              <hr />
+              <p className="descripcion">{pizzas.desc}</p>
               <button className="more btn" onClick={usarVerMasClick}>
                 Ver Menos
               </button>
             </>
           ) : (
             <>
-              <h5 className="titulo">{props.name}</h5>
+              <h5 className="titulo">{pizzas.name}</h5>
               <hr />
               <p>Ingredientes</p>
               <ul className="ingredientes">
-                {props.ingredients.map((ingredient, index) => (
+                {pizzas.ingredients.map((ingredient, index) => (
                   <li key={index}>{capPrimeraLetra(ingredient)}</li>
                 ))}
               </ul>
@@ -44,13 +44,20 @@ const Card = (props) => {
                     Ver Más
                   </button>
 
-<a className="btn add" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" onClick={props.onAddToCart}>
-Añadir <i className="fa-solid fa-cart-shopping"></i>
-</a>
+                  <a
+                    className="btn add"
+                    data-bs-toggle="offcanvas"
+                    href="#offcanvasExample"
+                    role="button"
+                    aria-controls="offcanvasExample"
+                    onClick={pizzas.onAddToCart}
+                  >
+                    Añadir <i className="fa-solid fa-cart-shopping"></i>
+                  </a>
 
-
-
-                  <h5 className="precio">Precio ${formatearNumero(props.price)}</h5>
+                  <h5 className="precio">
+                    Precio ${formatearNumero(pizzas.price)}
+                  </h5>
                 </div>
               </div>
             </>
