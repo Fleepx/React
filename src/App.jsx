@@ -10,7 +10,8 @@ import Footer from "./componentes/Footer";
 import "./App.css";
 import NotFound from "./views/NotFound";
 
-// se añade /React para poder realizar el deploy
+
+// se añade /React a cada ruta para poder realizar el deploy, puesto que se usa de base el repositorio de Github
 
 function App() {
   return (
@@ -23,8 +24,7 @@ function App() {
           <Route path="/React/Register" element={<Register></Register>}></Route>
           <Route path="/React/Login" element={<Login></Login>}></Route>
           <Route path="/React/Login" element={<Pizza></Pizza>}></Route>
-          <Route path='/404' element={<NotFound/>} />
-          <Route path='*' element={<Navigate replace to='/404'/>} />
+          <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
         <Footer />
       </div>
