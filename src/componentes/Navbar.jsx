@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatearNumero } from "./functions/format";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -11,7 +12,10 @@ const Navbar = () => {
 
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-            <a className="navbar-brand" href="#"><i class="fa-solid fa-pizza-slice"></i> Mamma Mia</a>
+            <Link to="/React" className="navbar-brand">
+
+            <i class="fa-solid fa-pizza-slice"></i> Mamma Mia</Link>
+
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
@@ -22,15 +26,17 @@ const Navbar = () => {
                 <a className="nav-link" href="#">Perfil</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="./componentes/Register" role="button">
-                    Ingresar
-                </a>
+
+                    <Link to="/React/Login" className="nav-link" role="button">Ingresar</Link>
+
                 </li>
                 <li className="nav-item">
                 <a className="nav-link" href="#">Salir</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="./componentes/Register">Registrarse</a>
+
+                    <Link to="/React/Register" className="nav-link">Registrarse</Link>
+
                 </li>
             </ul>
             <form className="d-flex" role="search">
