@@ -23,7 +23,8 @@ function App() {
           <Route path="/React/Register" element={<Register></Register>}></Route>
           <Route path="/React/Login" element={<Login></Login>}></Route>
           <Route path="/React/Login" element={<Pizza></Pizza>}></Route>
-          <Route path="*" element={<NotFound></NotFound>}></Route>
+          <Route path='/404' element={<NotFound/>} />
+          <Route path='*' element={<Navigate replace to='/404'/>} />
         </Routes>
         <Footer />
       </div>
