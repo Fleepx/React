@@ -1,6 +1,6 @@
 import React from 'react';
 
-const p404 = () => {
+const NotFound = () => {
   return (
     <footer className= "text-center mt-5">
       <h1>ERROR 404</h1>
@@ -9,4 +9,4 @@ const p404 = () => {
   );
 };
 
-export default p404;
+export default NotFound;
