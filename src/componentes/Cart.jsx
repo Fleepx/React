@@ -10,7 +10,7 @@ const Cart = ({ cartItems, onAdd, onRemove }) => {
     <div className="cart">
 
 
-<div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div className="offcanvas-header">
     <h5 className="offcanvas-title">Mamma Mia</h5>
     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
