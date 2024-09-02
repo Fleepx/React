@@ -66,7 +66,8 @@ const Profile = () => {
           </div>
         </div>
         <div className="card-footer text-center">
-          <button className="btn btn-primary">Editar Perfil</button>
+          <button className="btn btn-primary m-1">Editar Perfil</button>
+          <button className="btn btn-primary m-1">Cerrar Sesión</button>
         </div>
       </div>
     </div>
