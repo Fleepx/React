@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { formatearNumero } from "./functions/format";
+import { Link } from "react-router-dom";
 
 const Card = (pizzas) => {
-  const [mostrarDescripcion, setMostrarDescripcion] = useState(false);
-
-  const usarVerMasClick = () => {
-    setMostrarDescripcion(!mostrarDescripcion);
-  };
 
   const capPrimeraLetra = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -19,17 +15,6 @@ const Card = (pizzas) => {
           <img src={pizzas.img} className="card-img-top" alt={pizzas.name} />
         </div>
         <figcaption className="cuerpo">
-          {mostrarDescripcion ? (
-            <>
-              <h5 className="titulo">{pizzas.name}</h5>
-              <hr />
-              <p className="descripcion">{pizzas.desc}</p>
-              <button className="more btn" onClick={usarVerMasClick}>
-                Ver Menos
-              </button>
-            </>
-          ) : (
-            <>
               <h5 className="titulo">{pizzas.name}</h5>
               <hr />
               <p>Ingredientes</p>
@@ -40,9 +25,9 @@ const Card = (pizzas) => {
               </ul>
               <div className="container">
                 <div className="botones">
-                  <button className="more btn" onClick={usarVerMasClick}>
+                  <Link to="/React/Pizza" className="more btn">
                     Ver Más
-                  </button>
+                  </Link>
 
                   <a
                     className="btn add"
@@ -60,8 +45,6 @@ const Card = (pizzas) => {
                   </h5>
                 </div>
               </div>
-            </>
-          )}
         </figcaption>
       </figure>
     </div>

@@ -1,31 +1,37 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./componentes/Navbar";
-import Header from "./componentes/Header";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import CartContainer from "./componentes/CartContainer";
-import Register from "./views/Register";
-import Login from "./views/Login";
-import Pizza from "./views/Pizza";
+import Pizza from "./pages/Pizza";
 import Footer from "./componentes/Footer";
+import NotFound from "./pages/NotFound";
+import Pagar from "./pages/Pagar";
 import "./App.css";
-import NotFound from "./views/NotFound";
 
 
-// se añade /React a cada ruta para poder realizar el deploy, puesto que se usa de base el repositorio de Github
+// *se añade /React a cada ruta para poder realizar el deploy, puesto que se usa de base el repositorio de Github
+// *mi carro lo deje configurado como "offCanvas" por lo que se abre sin tener que direccionar directamente al componente,
+// en cambio deje una ruta hacia el metodo de pago para continuar con la ruta.
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Header />
-        <Routes>
-          <Route path="/React" element={<CartContainer></CartContainer>}></Route>
-          <Route path="/React/Register" element={<Register></Register>}></Route>
-          <Route path="/React/Login" element={<Login></Login>}></Route>
-          <Route path="/React/Login" element={<Pizza></Pizza>}></Route>
-          <Route path="*" element={<NotFound></NotFound>}></Route>
-        </Routes>
+          <Routes>
+            <Route path="/React" element={<CartContainer></CartContainer>}></Route>
+            <Route path="/React/Register" element={<Register></Register>}></Route>
+            <Route path="/React/Login" element={<Login></Login>}></Route>
+            <Route path="/React/Profile" element={<Profile></Profile>}></Route>
+            <Route path="/React/Pizza" element={<Pizza></Pizza>}></Route>
+            <Route path="/React/Pagar" element={<Pagar></Pagar>}></Route>
+            
+          
+            <Route path="*" element={<NotFound></NotFound>}></Route>
+          </Routes>
         <Footer />
       </div>
     </BrowserRouter>

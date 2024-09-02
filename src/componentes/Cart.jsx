@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatearNumero } from './functions/format';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cartItems, onAdd, onRemove }) => {
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -35,9 +36,9 @@ const Cart = ({ cartItems, onAdd, onRemove }) => {
             </div>
           ))}
           <h3>Total: ${formatearNumero(totalPrice)}</h3>
-          <button className="btn add">
+          <Link to="/React/Pagar" className="btn add">
             Pagar
-          </button>
+          </Link>
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardPizza from "./Card";
+import Header from "./Header";
 
 
 function Home({ agregarAlCarro }) {
@@ -17,6 +18,7 @@ function Home({ agregarAlCarro }) {
 
   return (
     <div>
+      <Header></Header>
       <main className="d-flex justify-content-center gap-3 mt-3 mb-3">
         {pizzas.map((pizza, index) => (
           <CardPizza

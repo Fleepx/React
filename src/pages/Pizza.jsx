@@ -15,9 +15,13 @@ const Pizza = () => {
     getData();
   }, []);
 
+  useEffect(() =>{console.log(pizza)},[pizza]
+
+   )
+
   const capPrimeraLetra = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+};
 
   return (
     <div>
@@ -26,7 +30,7 @@ const Pizza = () => {
           <img src={pizza.img} className="card-img-top" alt={pizza.name} />
         </div>
         <div className="d-flex flex-column gap-2">
-          <h5 className="titulo fs-1">{capPrimeraLetra(pizza.name)}</h5>
+          <h5 className="titulo fs-1">{pizza.name && capPrimeraLetra(pizza?.name)}</h5>
           <p className="descripcion" style={{ width: "600px" }}>
             {pizza.desc}
           </p>
@@ -42,7 +46,7 @@ const Pizza = () => {
                   ))}
               </ul>
             </div>
-            <h5 className="pricePizza">Precio ${formatearNumero(pizza.price)}</h5>
+            <h5 className="pricePizza">Precio ${pizza.price && formatearNumero(pizza?.price)}</h5>
           </div>
         </div>
       </div>
