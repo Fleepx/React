@@ -4,7 +4,6 @@ import Navbar from "./componentes/Navbar";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import CartContainer from "./componentes/CartContainer";
 import Pizza from "./pages/Pizza";
 import Footer from "./componentes/Footer";
 import NotFound from "./pages/NotFound";
