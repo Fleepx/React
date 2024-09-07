@@ -5,9 +5,8 @@ import { useApi } from "./Context/APIContext";
 
 const Card = ({ id, name, img, ingredients, price, agregarAlCarro }) => {
 
-  const capPrimeraLetra = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+  const { capPrimeraLetra} = useApi()
+
 
   return (
     <div  className="col">

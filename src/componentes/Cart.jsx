@@ -2,13 +2,11 @@ import React from 'react';
 import { formatearNumero } from './functions/format';
 import { Link } from 'react-router-dom';
 import { useCart } from './Context/CartContext';
+import { useApi } from './Context/APIContext';
 
 const Cart = () => {
   const { cartItems, agregarAlCarro, eliminarDelCarro, total } = useCart();
-
-  const capPrimeraLetra = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+  const { capPrimeraLetra} = useApi()
 
   return (
     
@@ -25,14 +23,14 @@ const Cart = () => {
           ) : (
             <div>
               {cartItems.map((item) => (
-                <div key={item.id} className='row py-3'>
+                <div key={item.id} className='row py-4 itemCarro'>
                   <div className='col-sm-7'>
-                <img src={item.img} alt={item.name} className="card-img-top" />
+                    <img src={item.img} alt={item.name} className="card-img-top" />
                   </div>
                   
                     <div className='col-sm-5'>
                     <h4>{capPrimeraLetra(item.name)}</h4>
-                    <div>
+                    <div className='my-2'>
                       <button onClick={() => eliminarDelCarro(item)} className='agregar'>-</button>
                       <span className='mx-2'>{item.quantity}</span>
                       <button onClick={() => agregarAlCarro(item)} className='restar'>+</button>
