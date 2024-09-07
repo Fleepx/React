@@ -25,17 +25,20 @@ const Cart = () => {
           ) : (
             <div>
               {cartItems.map((item) => (
-                <div key={item.id} >
+                <div key={item.id} className='row py-3'>
+                  <div className='col-sm-7'>
                 <img src={item.img} alt={item.name} className="card-img-top" />
-                  <div>
+                  </div>
+                  
+                    <div className='col-sm-5'>
                     <h4>{capPrimeraLetra(item.name)}</h4>
-                    <div className="cart-item-controls btn">
+                    <div>
                       <button onClick={() => eliminarDelCarro(item)} className='agregar'>-</button>
-                      <span>{item.quantity}</span>
+                      <span className='mx-2'>{item.quantity}</span>
                       <button onClick={() => agregarAlCarro(item)} className='restar'>+</button>
+                    </div>
                     <p>Precio: ${formatearNumero(item.price * item.quantity)}</p>
                     </div>
-                  </div>
                 </div>
               ))}
               <h3>Total: ${formatearNumero(total)}</h3>

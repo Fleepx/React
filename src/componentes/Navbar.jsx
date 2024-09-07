@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { formatearNumero } from "./functions/format";
 import { Link } from 'react-router-dom';
 import { useCart } from './Context/CartContext';
 
 const Navbar = () => {
-
     const { total } = useCart();
-    const token  = false;
-
-
+    const token = false;
+  
+    const manejoCarrito = () => {
+      const offcanvasElement = document.getElementById('offcanvasExample');
+      const offcanvas = new window.bootstrap.Offcanvas(offcanvasElement);
+      offcanvas.show();
+    };
+    
     return (
     <div>
 
@@ -33,7 +37,7 @@ const Navbar = () => {
 
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="#">Salir</a>
+                <a className="nav-link">Salir</a>
                 </li>
                 <li className="nav-item">
 
@@ -41,20 +45,18 @@ const Navbar = () => {
 
                 </li>
             </ul>
-            <form className="d-flex" role="search">
-                <a
-                    className="btn btn-outline-success"
-                    data-bs-toggle="offcanvas"
-                    href="#offcanvasExample"
-                    role="button"
-                    aria-controls="offcanvasExample"
-                  >
-                    Total ${formatearNumero(total)} <i className="fa-solid fa-cart-shopping"></i>
-                  </a>
-                  </form>
+            <div className="d-flex" role="search">
+            <button
+              type="button"
+              className="btn btn-outline-success"
+              onClick={manejoCarrito}
+            >
+              Total ${formatearNumero(total)} <i className="fa-solid fa-cart-shopping"></i>
+            </button>
+                  </div>
             </div>
         </div>
-        </nav>  
+        </nav>
     </div>
   );
 };

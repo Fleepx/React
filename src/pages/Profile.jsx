@@ -16,7 +16,7 @@ const Profile = () => {
   return (
     <div className="d-flex justify-content-center align-items-center m-2">
       <div className="card w-50 m-5">
-        <div className="card-header bg-primary text-white ">
+        <div className="card-header bg-primary text-white text-center">
           <h4>Perfil de Usuario</h4>
         </div>
         <div className="card-body">

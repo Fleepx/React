@@ -19,7 +19,7 @@ const agregarAlCarro = (pizza) => {
       }
     };
   
-const eliminarDelCarro = (pizza) => {
+const eliminarDelCarro = (id) => {
       const existingItem = cartItems.find(item => item.id === pizza.id);
       if (existingItem.quantity === 1) {
         setCartItems(cartItems.filter(item => item.id !== pizza.id));

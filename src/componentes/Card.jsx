@@ -9,7 +9,7 @@ const Card = (pizza) => {
   };
 
   return (
-    <div>
+    <div  className="col">
       <figure className="card">
         <div className="img">
           <img src={pizza.img} className="card-img-top" alt={pizza.name} />
@@ -35,7 +35,7 @@ const Card = (pizza) => {
                     href="#offcanvasExample"
                     role="button"
                     aria-controls="offcanvasExample"
-                    onClick={pizza.onAddToCart}
+                    onClick={pizza.agregarAlCarro}
                   >
                     Añadir <i className="fa-solid fa-cart-shopping"></i>
                   </a>

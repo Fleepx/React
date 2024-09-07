@@ -11,20 +11,24 @@ import NotFound from "./pages/NotFound";
 import Pagar from "./pages/Pagar";
 import "./App.css";
 import ApiProvider from "./componentes/Context/APIContext";
+import Cart from "./componentes/Cart";
+import { useCart } from "./componentes/Context/CartContext";
+import Home from "./componentes/Home";
 
 // *se añade /React a cada ruta para poder realizar el deploy, puesto que se usa de base el repositorio de Github
 // *mi carro lo deje configurado como "offCanvas" por lo que se abre sin tener que direccionar directamente al componente,
 // en cambio deje una ruta hacia el metodo de pago para continuar con la ruta.
-
-
 function App() {
+const { cartItems, agregarAlCarro, eliminarDelCarro } = useCart();
+
   return (
     <BrowserRouter>
       <div className="App">
         <ApiProvider>
         <Navbar />
+        <Cart cartItems={cartItems} agregarAlCarro={agregarAlCarro} eliminarDelCarro={eliminarDelCarro} />
           <Routes>
-            <Route path="/React" element={<CartContainer></CartContainer>}></Route>
+            <Route path="/React" element={<Home></Home>}></Route>
             <Route path="/pizza/:id" element={<Pizza></Pizza>}></Route>
             <Route path="/React/Register" element={<Register></Register>}></Route>
             <Route path="/React/Login" element={<Login></Login>}></Route>
