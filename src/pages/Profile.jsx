@@ -25,7 +25,9 @@ const Profile = () => {
               {catImage ? (
                 <img src={catImage} alt="Perfil" className="img-center rounded-circle" style={{ width: '15rem', height: '15rem', objectFit: 'cover' }} />
               ) : (
-                <p>Cargando imagen...</p>
+                <div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
               )}
             </div>
             <div className="col-sm-8">
