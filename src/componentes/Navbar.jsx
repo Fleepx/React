@@ -8,6 +8,7 @@ const Navbar = () => {
     const { total } = useCart();
     const token  = false;
 
+
     return (
     <div>
 

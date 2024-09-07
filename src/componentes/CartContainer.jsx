@@ -4,8 +4,7 @@ import Cart from './Cart';
 import { useCart } from './Context/CartContext';
 
 const CartContainer = () => {
-  const [cartItems ] = useState([]);
-  const { agregarAlCarro, eliminarDelCarro } = useCart();
+  const { cartItems, agregarAlCarro, eliminarDelCarro } = useCart();
 
   return (
     <div>
