@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CardPizza from "./Card";
 import Header from "./Header";
+import { useApi } from "./Context/APIContext";
 
 
 function Home({ agregarAlCarro }) {
-  const [pizzas, setPizzas] = useState([])
-
-  useEffect (() => {
-      fetch("http://localhost:5000/api/pizzas")
-        .then(res => res.json())
-        .then(res => setPizzas(res))
-  },[])
+  
+  const {pizzas} = useApi()
 
   const capPrimeraLetra = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);

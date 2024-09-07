@@ -7,3 +7,4 @@ if (numeroStr.length === 4) {
 
 return numero.toLocaleString('es-ES');
 };
+

@@ -95,3 +95,8 @@ main {
   background-position: center;
   background-size:cover;
 }
+.montoPagar {
+  position: relative; /* o absolute, según el caso */
+  top: 153px; /* Mover hacia abajo 20px */
+  left: 290px; /* Mover hacia la derecha 30px */
+}

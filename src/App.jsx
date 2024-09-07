@@ -10,6 +10,7 @@ import Footer from "./componentes/Footer";
 import NotFound from "./pages/NotFound";
 import Pagar from "./pages/Pagar";
 import "./App.css";
+import ApiProvider from "./componentes/Context/APIContext";
 
 
 // *se añade /React a cada ruta para poder realizar el deploy, puesto que se usa de base el repositorio de Github
@@ -20,19 +21,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <ApiProvider>
+
         <Navbar />
           <Routes>
             <Route path="/React" element={<CartContainer></CartContainer>}></Route>
+            <Route path="/React/Pizza" element={<Pizza></Pizza>}></Route>
             <Route path="/React/Register" element={<Register></Register>}></Route>
             <Route path="/React/Login" element={<Login></Login>}></Route>
             <Route path="/React/Profile" element={<Profile></Profile>}></Route>
-            <Route path="/React/Pizza" element={<Pizza></Pizza>}></Route>
             <Route path="/React/Pagar" element={<Pagar></Pagar>}></Route>
-            
-          
             <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
         <Footer />
+        </ApiProvider>
       </div>
     </BrowserRouter>
   );

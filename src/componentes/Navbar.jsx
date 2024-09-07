@@ -1,10 +1,11 @@
 import React from 'react';
 import { formatearNumero } from "./functions/format";
 import { Link } from 'react-router-dom';
+import { useCart } from './Context/CartContext';
 
 const Navbar = () => {
 
-    const total = 25000;
+    const { total } = useCart();
     const token  = false;
 
     return (
@@ -40,8 +41,16 @@ const Navbar = () => {
                 </li>
             </ul>
             <form className="d-flex" role="search">
-                <Link to="/React/Pagar" className="btn btn-outline-success" type="submit"><i className="fa-solid fa-cart-shopping"></i> Total: ${formatearNumero(total)}</Link>
-            </form>
+                <a
+                    className="btn btn-outline-success"
+                    data-bs-toggle="offcanvas"
+                    href="#offcanvasExample"
+                    role="button"
+                    aria-controls="offcanvasExample"
+                  >
+                    Total ${formatearNumero(total)} <i className="fa-solid fa-cart-shopping"></i>
+                  </a>
+                  </form>
             </div>
         </div>
         </nav>  

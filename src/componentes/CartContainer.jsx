@@ -1,43 +1,15 @@
 import React, { useState } from 'react';
 import Home from './Home';
 import Cart from './Cart';
+import { useCart } from './Context/CartContext';
 
 const CartContainer = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  const agregarAlCarro = (pizza) => {
-    const existingItem = cartItems.find(item => item.id === pizza.id);
-    if (existingItem) {
-      setCartItems(
-        cartItems.map(item =>
-          item.id === pizza.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...pizza, quantity: 1 }]);
-    }
-  };
-
-  const handleRemoveFromCart = (pizza) => {
-    const existingItem = cartItems.find(item => item.id === pizza.id);
-    if (existingItem.quantity === 1) {
-      setCartItems(cartItems.filter(item => item.id !== pizza.id));
-    } else {
-      setCartItems(
-        cartItems.map(item =>
-          item.id === pizza.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-      );
-    }
-  };
+  const [cartItems ] = useState([]);
+  const { agregarAlCarro, eliminarDelCarro } = useCart();
 
   return (
     <div>
-      <Cart cartItems={cartItems} onAdd={agregarAlCarro} onRemove={handleRemoveFromCart} />
+      <Cart cartItems={cartItems} agregarAlCarro={agregarAlCarro} eliminarDelCarro={eliminarDelCarro} />
       <Home agregarAlCarro={agregarAlCarro} />
     </div>
   );
