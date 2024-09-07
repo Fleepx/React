@@ -19,18 +19,18 @@ const agregarAlCarro = (pizza) => {
       }
     };
   
-const eliminarDelCarro = (id) => {
-      const existingItem = cartItems.find(item => item.id === pizza.id);
+    const eliminarDelCarro = (id) => {
+      const existingItem = cartItems.find(item => item.id === id);
       if (existingItem.quantity === 1) {
-        setCartItems(cartItems.filter(item => item.id !== pizza.id));
+          setCartItems(cartItems.filter(item => item.id !== id));
       } else {
-        setCartItems(cartItems.map(item =>
-          item.id === pizza.id 
-            ? { ...item, quantity: item.quantity - 1 } 
-            : item
-        ));
+          setCartItems(cartItems.map(item =>
+              item.id === id 
+              ? { ...item, quantity: item.quantity - 1 } 
+              : item
+          ));
       }
-    };
+  };
 
 const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 

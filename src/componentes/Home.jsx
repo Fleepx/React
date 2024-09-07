@@ -6,12 +6,10 @@ import { useCart } from "./Context/CartContext";
 
 
 function Home() {
-  const {pizzas} = useApi()
+  const {pizzas, capPrimeraLetra} = useApi()
   const { agregarAlCarro } = useCart();
 
-  const capPrimeraLetra = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+
 
   return (
     <div>

@@ -1,8 +1,9 @@
 import React from "react";
 import { formatearNumero } from "./functions/format";
 import { Link } from "react-router-dom";
+import { useApi } from "./Context/APIContext";
 
-const Card = (pizza) => {
+const Card = ({ id, name, img, ingredients, price, agregarAlCarro }) => {
 
   const capPrimeraLetra = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -12,20 +13,20 @@ const Card = (pizza) => {
     <div  className="col">
       <figure className="card">
         <div className="img">
-          <img src={pizza.img} className="card-img-top" alt={pizza.name} />
+          <img src={img} className="card-img-top" alt={name} />
         </div>
         <figcaption className="cuerpo">
-              <h5 className="titulo">{pizza.name}</h5>
+              <h5 className="titulo">{name}</h5>
               <hr />
               <p>Ingredientes</p>
               <ul className="ingredientes">
-                {pizza.ingredients.map((ingredient, index) => (
+                {ingredients.map((ingredient, index) => (
                   <li key={index}>{capPrimeraLetra(ingredient)}</li>
                 ))}
               </ul>
               <div className="container">
                 <div className="botones">
-                  <Link to={`/pizza/${pizza.id}`} key={pizza.id} className="more btn">
+                  <Link to={`/pizza/${id}`} key={id} className="more btn">
                     Ver Más
                   </Link>
 
@@ -35,13 +36,13 @@ const Card = (pizza) => {
                     href="#offcanvasExample"
                     role="button"
                     aria-controls="offcanvasExample"
-                    onClick={pizza.agregarAlCarro}
+                    onClick={agregarAlCarro}
                   >
                     Añadir <i className="fa-solid fa-cart-shopping"></i>
                   </a>
 
                   <h5 className="precio">
-                    Precio ${formatearNumero(pizza.price)}
+                    Precio ${formatearNumero(price)}
                   </h5>
                 </div>
               </div>

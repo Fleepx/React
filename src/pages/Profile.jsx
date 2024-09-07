@@ -14,21 +14,21 @@ const Profile = () => {
 
 
   return (
-    <div className="d-flex justify-content-center align-items-center m-2">
+    <div className="d-flex justify-content-center align-items-center my-2">
       <div className="card w-50 m-5">
         <div className="card-header bg-primary text-white text-center">
           <h4>Perfil de Usuario</h4>
         </div>
         <div className="card-body">
-          <div className="row mb-3 align-items-center ">
-            <div className="col-sm-3">
+          <div className="row mb-3 ">
+            <div className="col-sm-4">
               {catImage ? (
                 <img src={catImage} alt="Perfil" className="img-center rounded-circle" style={{ width: '15rem', height: '15rem', objectFit: 'cover' }} />
               ) : (
                 <p>Cargando imagen...</p>
               )}
             </div>
-            <div className="col-sm-8 position-absolute end-0">
+            <div className="col-sm-8">
               <div className="row mb-3">
                 <div className="col-sm-4">
                   <strong>Nombre:</strong>

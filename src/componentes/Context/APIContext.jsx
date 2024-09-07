@@ -12,9 +12,12 @@ const ApiProvider = ({children}) => {
           .then(res => setPizzas(res))
     },[])
 
+    const capPrimeraLetra = (str) => {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    };
 
     return (
-        <ApiContext.Provider value={{ pizzas, setPizzas }}>
+        <ApiContext.Provider value={{ pizzas, setPizzas, capPrimeraLetra }}>
           {children}
         </ApiContext.Provider>
       );
