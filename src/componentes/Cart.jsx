@@ -3,10 +3,12 @@ import { formatearNumero } from './functions/format';
 import { Link } from 'react-router-dom';
 import { useCart } from './Context/CartContext';
 import { useApi } from './Context/APIContext';
+import { useUser } from './Context/UserContext';
 
 const Cart = () => {
   const { cartItems, agregarAlCarro, eliminarDelCarro, total } = useCart();
   const { capPrimeraLetra} = useApi()
+  const { user } = useUser();
 
   return (
     
@@ -40,9 +42,13 @@ const Cart = () => {
                 </div>
               ))}
               <h3>Total: ${formatearNumero(total)}</h3>
-              <Link to="/React/Pagar" className="btn add">
-                Pagar
-              </Link>
+
+              {user && (
+                  <Link to="/React/Pagar" className="btn add">
+                    Pagar
+                  </Link>
+                )}
+
             </div>
           )}
         </div>  
