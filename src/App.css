@@ -74,11 +74,10 @@ main {
 .descPizza {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 }
 .pricePizza {
-  margin-right: 5rem;
   font-size: 25px;
 }
 .metodoPago {
