@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { formatearNumero } from "./functions/format";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "./Context/CartContext";
 import { useUser } from "./Context/UserContext";
 
@@ -14,6 +14,8 @@ const Navbar = () => {
     const offcanvas = new window.bootstrap.Offcanvas(offcanvasElement);
     offcanvas.show();
   };
+
+  const setActiveClass = ({isActive}) => isActive ? `active` : 'notActive';
 
   // El desafio me está pidiendo cosas que me parecen incongruentes, asi que lo hice de esta forma
   // Si no mostraré Profile cuando el token es false, para  que lo voy a redirigir si no será visible
@@ -43,27 +45,27 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
 
 
 
               {user ? (
               <li className="nav-item">
-                <Link to="/React/Profile" className="nav-link">
+                <NavLink to="/React/Profile" className={setActiveClass}>
                   Perfil
-                </Link>
+                </NavLink>
               </li>
               ) : (
                 <>
                 <li className="nav-item">
-                <Link to="/React/Login" className="nav-link">
+                <NavLink to="/React/Login" className={setActiveClass}>
                   Ingresar
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/React/Register" className="nav-link">
+                <NavLink to="/React/Register" className={setActiveClass}>
                   Registrarse
-                </Link>
+                </NavLink>
               </li>
               </>
               )}
