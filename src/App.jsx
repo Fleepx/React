@@ -13,6 +13,7 @@ import ApiProvider from "./componentes/Context/APIContext";
 import Cart from "./componentes/Cart";
 import { useCart } from "./componentes/Context/CartContext";
 import Home from "./componentes/Home";
+import ProtectedRoute from "./componentes/Context/ProtectRuta";
 
 // *se añade /React a cada ruta para poder realizar el deploy, puesto que se usa de base el repositorio de Github
 // *mi carro lo deje configurado como "offCanvas" por lo que se abre sin tener que direccionar directamente al componente,
@@ -31,7 +32,10 @@ const { cartItems, agregarAlCarro, eliminarDelCarro } = useCart();
             <Route path="/pizza/:id" element={<Pizza></Pizza>}></Route>
             <Route path="/React/Register" element={<Register></Register>}></Route>
             <Route path="/React/Login" element={<Login></Login>}></Route>
-            <Route path="/React/Profile" element={<Profile></Profile>}></Route>
+            <Route path="/React/Profile" element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>}></Route>
             <Route path="/React/Pagar" element={<Pagar></Pagar>}></Route>
             <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
