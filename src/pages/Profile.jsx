@@ -14,8 +14,8 @@ const Profile = () => {
   }, [getProfile]);
 
   const handleLogout = () => {
-    Logout(); // Llamar a la función de Logout del contexto
-    navigate("/React"); // Redirigir al Home después de cerrar sesión
+    Logout(); 
+    navigate("/React");
   };
 
   return (

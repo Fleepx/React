@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
 
     //LOGIN
     const Login = (userData) => {
-        setUser(userData);  // Se actualiza el estado del usuario
+        setUser(userData); 
       };
     const login = async (email, password) => {
         try {
@@ -53,7 +53,7 @@ export const UserProvider = ({ children }) => {
 
       //LOGOUT
       const Logout = () => {
-        setUser(null); // Al hacer logout, se limpia el estado del usuario
+        setUser(null); 
       };
       const logout = () => {
         setToken(null);

@@ -4,7 +4,7 @@ import { useUser } from "../componentes/Context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { login, Login } = useUser(); // Acceder al método login desde el UserContext
+  const { login, Login } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -30,7 +30,6 @@ const Login = () => {
       });
     } else {
       try {
-        // Llamar al método login del UserContext
         await login(email, password);
 
         Swal.fire({

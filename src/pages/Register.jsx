@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { useUser } from "../componentes/Context/UserContext";
 
 const Register = () => {
-  const { register, Login } = useUser(); // Acceder al método register desde el UserContext
+  const { register, Login } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -45,7 +45,6 @@ const Register = () => {
       });
     } else {
       try {
-        // Llamada al método register del UserContext
         await register(email, password);
 
         Swal.fire({
