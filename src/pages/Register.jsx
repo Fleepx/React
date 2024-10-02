@@ -1,20 +1,24 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useUser } from "../componentes/Context/UserContext";
 
 const Register = () => {
+  const { register, Login } = useUser(); // Acceder al método register desde el UserContext
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const validaFormulario = (e) => {
+  const validaFormulario = async (e) => {
+    e.preventDefault();
+
     const pattern = new RegExp(
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     );
-    e.preventDefault();
+
     if (
-      email.toLowerCase().trim() == "" ||
-      password.trim() == "" ||
-      confirmPassword.trim() == ""
+      email.toLowerCase().trim() === "" ||
+      password.trim() === "" ||
+      confirmPassword.trim() === ""
     ) {
       Swal.fire({
         title: "Error!",
@@ -23,25 +27,43 @@ const Register = () => {
         confirmButtonText: "Cerrar",
         timer: 1500,
       });
+    } else if (!pattern.test(email)) {
+      Swal.fire({
+        title: "Error!",
+        text: "El formato de email es incorrecto",
+        icon: "warning",
+        confirmButtonText: "Cerrar",
+        timer: 1500,
+      });
+    } else if (password !== confirmPassword || password.length < 6) {
+      Swal.fire({
+        title: "Error!",
+        text: "Debe cumplir con los requisitos de la contraseña",
+        icon: "warning",
+        confirmButtonText: "Cerrar",
+        timer: 1500,
+      });
     } else {
-      if (password === confirmPassword && password.length >= 6) {
+      try {
+        // Llamada al método register del UserContext
+        await register(email, password);
+
         Swal.fire({
           title: "Success!",
           text: "Registro completo, por favor revisa tu correo para continuar",
           icon: "success",
           confirmButtonText: "Cerrar",
         });
-      } else {
+      } catch (error) {
         Swal.fire({
           title: "Error!",
-          text: "Debe cumplir con los requisitos",
-          icon: "warning",
+          text: "Hubo un error en el registro",
+          icon: "error",
           confirmButtonText: "Cerrar",
-          timer: 1500,
         });
       }
     }
-    
+
 
     setEmail("");
     setPassword("");
@@ -83,7 +105,7 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-                <div className="text-danger mt-1">*Mínimo 6 caracteres</div>
+              <div className="text-danger mt-1">*Mínimo 6 caracteres</div>
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
@@ -97,7 +119,9 @@ const Register = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <div className="text-danger mt-1">*Las contraseñas deben ser idénticas</div>
+              <div className="text-danger mt-1">
+                *Las contraseñas deben ser idénticas
+              </div>
             </div>
             <div className="d-flex justify-content-center">
               <button type="submit" className="btn btn-dark">
