@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useUser } from '../componentes/Context/UserContext';
+import { Navigate } from 'react-router-dom';
 
 const Profile = () => {
   const { getProfile, Logout, email } = useUser();
@@ -15,7 +16,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     Logout(); 
-    navigate("/React");
+    Navigate("/React");
   };
 
   return (
